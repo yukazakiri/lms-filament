@@ -1,10 +1,14 @@
 @import 'tailwindcss';
 @import '../../vendor/livewire/flux/dist/flux.css';
+@import '../../vendor/filament/filament/resources/css/theme.css';
 
 @source '../views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../vendor/livewire/flux-pro/stubs/**/*.blade.php';
 @source '../../vendor/livewire/flux/stubs/**/*.blade.php';
+@source '../../app/**/*';
+@source '../../resources/views/filament/**/*';
+
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -64,3 +68,40 @@ select:focus[data-flux-control] {
 /* \[:where(&)\]:size-4 {
     @apply size-4;
 } */
+
+
+body.fi-body:has(.fi-layout) {
+    @apply bg-slate-100 dark:bg-gray-900;
+}
+
+.fi-sidebar-nav-tenant-menu-ctn {
+    @apply hidden;
+}
+
+.fi-layout {
+    @apply h-[100dvh] fixed;
+}
+
+.fi-sidebar {
+    @apply ml-[calc(var(--spacing)*16)] h-[calc(100%-1rem)] my-2;
+}
+
+.fi-sidebar-nav {
+    @apply bg-white dark:bg-gray-800 rounded-xl ring ring-slate-300 dark:ring-slate-950 ps-4 pe-4 overflow-visible;
+}
+
+.fi-main-ctn {
+    @apply mx-3 my-2 bg-white dark:bg-gray-800 rounded-xl ring ring-slate-300 dark:ring-slate-950 overflow-y-auto;
+}
+
+.fi-breadcrumbs {
+    @apply bg-slate-100 dark:bg-gray-900 px-4 py-1 rounded-full ring ring-slate-300 dark:ring-slate-700;
+}
+
+.fi-btm-menu-ctn .fi-avatar {
+    --spacing: .35rem;
+}
+
+.fi-global-search-results-ctn {
+    @apply left-0;
+}
